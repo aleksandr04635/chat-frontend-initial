@@ -1,0 +1,28 @@
+
+new4\nestjs_graphql_react_chat_app-main>
+Full Stack Real-Time Chat App: NestJS, Prisma, Postgres, GraphQL, Redis, React, Zustand & Mantine UI
+https://github.com/thebeautyofcoding/nestjs_graphql_react_chat_app
+https://www.youtube.com/watch?v=xPmUKBrZL74
+codingIsLove - hindus
+Redis and Postgres in Docker with docker-compose up - via docker-compose.yml
+Nest JWT auth
+Auth via graphQL with JWT in http only cookies
+
+
+Schema on frontend is made via codegen
+https://youtu.be/xPmUKBrZL74?t=3916
+https://the-guild.dev/graphql/codegen/docs/guides/react-vue#installation
+
+to start   :
+in backend folder :
+npm run start:dev
+npx prisma studio
+docker-compose up (only if containers are not started)
+
+in frontend folder: 
+npx graphql-codegen --watch --verbose (not every time, only to start a project or make changes to the backend)
+npm run dev
+
+backend test querry on http://localhost:3000/graphql   :
+query hello{hello}
+
