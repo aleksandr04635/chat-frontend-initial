@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { useGeneralStore } from "../stores/generalStore";
-import { useUserStore } from "../stores/userStore";
-import { useForm } from "@mantine/form";
-import { useMutation } from "@apollo/client";
-import { UPDATE_PROFILE } from "../graphql/mutations/UpdateUserProfile";
+import React, { useState } from 'react';
+import { useGeneralStore } from '../stores/generalStore';
+import { useUserStore } from '../stores/userStore';
+import { useForm } from '@mantine/form';
+import { useMutation } from '@apollo/client';
+import { UPDATE_PROFILE } from '../graphql/mutations/UpdateUserProfile';
 import {
   Avatar,
   Button,
@@ -12,15 +12,15 @@ import {
   Group,
   Modal,
   TextInput,
-} from "@mantine/core";
-import { IconEditCircle } from "@tabler/icons-react";
+} from '@mantine/core';
+import { IconEditCircle } from '@tabler/icons-react';
 
 function ProfileSettings() {
   const isProfileSettingsModalOpen = useGeneralStore(
-    (state) => state.isProfileSettingsModalOpen
+    (state) => state.isProfileSettingsModalOpen,
   );
   const toggleProfileSettingsModal = useGeneralStore(
-    (state) => state.toggleProfileSettingsModal
+    (state) => state.toggleProfileSettingsModal,
   );
   const profileImage = useUserStore((state) => state.avatarUrl);
   const updateProfileImage = useUserStore((state) => state.updateProfileImage);
@@ -40,7 +40,7 @@ function ProfileSettings() {
       fullname: (value: string) =>
         value.trim().length >= 3
           ? null
-          : "Username must be at least 3 characters",
+          : 'Username must be at least 3 characters',
     },
   });
 
@@ -65,18 +65,20 @@ function ProfileSettings() {
   };
 
   return (
+    /*   <div style={{ position: "relative", left: "0px" }}> */
     <Modal
       centered
       opened={isProfileSettingsModalOpen}
       onClose={toggleProfileSettingsModal}
       title="Profile Settings"
+      /*  zIndex={2000} */
     >
       <form onSubmit={form.onSubmit(() => handleSave())}>
         <Group
           pos="relative"
           w={100}
           h={100}
-          style={{ cursor: "pointer" }}
+          style={{ cursor: 'pointer' }}
           onClick={() => fileInputRef.current?.click()}
         >
           <Avatar
@@ -90,30 +92,30 @@ function ProfileSettings() {
             color="black"
             size={20}
             style={{
-              position: "absolute",
+              position: 'absolute',
               top: 50,
               right: -10,
-              background: "white",
-              border: "1px solid black",
+              background: 'white',
+              border: '1px solid black',
               padding: 5,
               borderRadius: 100,
             }}
           />
           <FileInput
             ref={fileInputRef}
-            style={{ display: "none" }}
-            pos={"absolute"}
+            style={{ display: 'none' }}
+            pos={'absolute'}
             accept="image/*"
-            placeholder="Upload new image"
+            /*  placeholder="Upload new image" */
             onChange={(file) => setImageFile(file)}
           />
         </Group>
         <TextInput
           style={{ marginTop: 20 }}
           label="Username"
-          {...form.getInputProps("fullname")}
+          {...form.getInputProps('fullname')}
           onChange={(event) => {
-            form.setFieldValue("fullname", event.currentTarget.value);
+            form.setFieldValue('fullname', event.currentTarget.value);
           }}
           error={form.errors.fullname}
         />
@@ -125,6 +127,7 @@ function ProfileSettings() {
         </Flex>
       </form>
     </Modal>
+    /*  </div> */
   );
 }
 

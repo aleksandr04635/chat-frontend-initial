@@ -320,17 +320,31 @@ function Chatwindow() {
     }
   }, [dataSub?.newMessage, messages]);
 
-  const isMediumDevice = useMediaQuery("(max-width: 992px)");
+  const isDeviceNarrow = useMediaQuery("(max-width: 992px)");
+  console.log("isDeviceNarrow: ", isDeviceNarrow);
 
   return (
     <Flex
-      maw={isMediumDevice ? "calc(100vw - 100px)" : "calc(100vw - 550px)"}
-      justify={"center"}
-      ml={isMediumDevice ? "100px" : "0"}
-      h={"100vh"}
+      /*  mt={"150px"} */
+      /*  maw={isDeviceNarrow ? "calc(100vw - 100px)" : "calc(100vw - 550px)"} */
+      maw={isDeviceNarrow ? "calc(100vw )" : "calc(100vw - 450px)"}
+      /* justify={"center"} */
+      /*  ml={isDeviceNarrow ? "100px" : "0"} */
+      ml={isDeviceNarrow ? "0" : "0"}
+      /*  h={"100vh"} */
+      /* h={isDeviceNarrow ? "unset" : "unset" } */
+      /* h={isDeviceNarrow ? "unset" : "calc(100vh-50px )"} */
+      className="Chatwindow"
     >
       {!liveUsersLoading && isUserPartOfChatroom ? (
-        <Card withBorder shadow="xl" p={0} w={"100%"}>
+        <Card
+          withBorder
+          /*  shadow="xl" */
+          p={0}
+          w={"100%"}
+          m={0}
+          className="chatCard"
+        >
           <Flex direction={"column"} pos={"relative"} h={"100%"} w={"100%"}>
             <Flex direction={"column"} bg={"#f1f1f0"}>
               <Flex
@@ -395,7 +409,8 @@ function Chatwindow() {
               h={"70vh"}
               offsetScrollbars
               type="always"
-              w={isMediumDevice ? "calc(100vw - 100px)" : "calc(100vw - 550px)"}
+              /*  w={isDeviceNarrow ? "calc(100vw - 100px)" : "calc(100vw - 550px)"} */
+              w={isDeviceNarrow ? "calc(100vw )" : "calc(100vw - 450px)"}
               p={"md"}
             >
               {loading ? (

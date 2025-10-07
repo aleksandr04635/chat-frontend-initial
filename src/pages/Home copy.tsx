@@ -12,17 +12,10 @@ import MainLayoutHome from "../layouts/MainLayoutHome";
 
 function Home() {
   return (
-    /*  <MainLayoutHome>  */
-    <Flex
-      className="home-container"
-      /*  style={{
-        backgroundColor: "red",
-      }} */
-    >
+    <MainLayoutHome>
       <div
         style={{
           position: "absolute",
-          /*  backgroundColor: "red", */
           /*top: "50px",
           left: 0,
           zIndex: 100,
@@ -36,15 +29,14 @@ function Home() {
           <AddChatroom />
           <Flex
             direction={{ base: "column", md: "row" }}
-            /*  style={{ marginTop: "80px" }} */
+            style={{ marginTop: "80px" }}
           >
             <RoomList />
             <JoinRoomOrChatwindow />
           </Flex>
         </ProtectedRoutes>
       </div>
-    </Flex>
-    /*  </MainLayoutHome> */
+    </MainLayoutHome>
   );
 }
 

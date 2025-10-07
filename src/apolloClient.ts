@@ -52,7 +52,7 @@ const maxRetry = 3;
 const errorLink = onError(({ graphQLErrors, operation, forward }) => {
   for (const err of graphQLErrors!) {
     console.log("err from errorLink: ", err);
-    if (err.extensions.code === "UNAUTHENTICATED" && retryCount < maxRetry) {
+    if (err.extensions?.code === "UNAUTHENTICATED" && retryCount < maxRetry) {
       console.log("refreshing in errorLink: ");
       retryCount++;
       return new Observable((observer) => {

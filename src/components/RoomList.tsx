@@ -98,10 +98,20 @@ function RoomList() {
   };
 
   return (
-    <Flex direction={"row"} h={isMediumDevice ? "unset" : "100vh"} ml={"100px"}>
-      <Card shadow="md" p={0}>
+    <Flex
+      className="RoomList"
+      direction={"row"} /*  mt={"100px"} */
+      /*  h={isMediumDevice ? "unset" : "100vh"} */
+      /*  ml={"100px"} */
+    >
+      <Card /* shadow="md" */ p={0}>
         <Flex direction="column" align="start">
-          <Group position="apart" w={"100%"} mb={"md"} mt={"md"} ml={"md"}>
+          <Group
+            position="center"
+            w={"100%"}
+            mb={"md"}
+            mt={"md"} /*  ml={"md"} */
+          >
             <Button
               onClick={toggleCreateRoomModal}
               variant="light"
@@ -111,9 +121,10 @@ function RoomList() {
             </Button>
           </Group>
           <ScrollArea
-            h={isMediumDevice ? "unset" : "83vh"}
+            /*   h={isMediumDevice ? "unset" : "83vh"} */
             /*   h={"83vh"} */
-            w={isMediumDevice ? "calc(100vw - 100px)" : "450px"}
+            /*   w={isMediumDevice ? "calc(100vw - 100px)" : "450px"} */
+            w={isMediumDevice ? "calc(100vw )" : "450px"}
             mb="md"
           >
             <Flex direction={"column"}>
